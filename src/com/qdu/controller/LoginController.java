@@ -46,21 +46,22 @@ public class LoginController {
 			session.setAttribute("username", user.getUsername());
 			return mav;
 		}
-		mav.setViewName("error");
+		mav.setViewName("login_error");
 		mav.addObject("errorMessage", "用户名或者密码错误！");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/adminLogin.do", method = RequestMethod.POST)
-	public ModelAndView adminLogin(Admin admin) {
-		ModelAndView mav = new ModelAndView();
-		List<Admin> list = userService.checkAdminLogin(admin);
-		if(list.size() == 1) {
-			mav.setViewName("success");
-			return mav;
-		}
-		mav.setViewName("error");
-		mav.addObject("errorMessage", "用户名或者密码错误！");
+	@RequestMapping("/changePassword.do")
+	public ModelAndView changePassword(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("change_password");
+		String password = userService.getUserPassword((String)request.getSession().getAttribute("username"));
+		mav.addObject("password", password);
 		return mav;
+	}
+	
+	@RequestMapping("/changeNewPassword.do")
+	public String changeNewPassword(HttpServletRequest request) {
+		userService.changePassword((String)request.getParameter("newPassword"), (String)request.getSession().getAttribute("username"));
+		return "home";
 	}
 }

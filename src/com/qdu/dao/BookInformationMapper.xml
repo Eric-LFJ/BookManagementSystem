@@ -21,4 +21,23 @@
 	<select id="searchBookByCategory" parameterType="String" resultType="com.qdu.bean.Book">
 		select * from books where category = #{categoryname}
 	</select>
+	
+	<select id="userOrderbook" parameterType="String" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where username = #{username} and state = 0
+	</select>
+	<select id="cancelOrder" parameterType="String">
+		delete from user_book where rentid = #{rentid}
+	</select>
+	<select id="userRentbook" parameterType="String" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where username = #{username} and state = 1
+	</select>
+	<select id="userOvertime" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where enddate &lt; #{datenow} and username = #{username} and (state = 1 or state = 0)
+	</select>
+	<select id="userReturnbook" parameterType="String" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where username = #{username} and state = 2
+	</select>
+	<select id="hasRent" parameterType="String" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where username = #{username}
+	</select>
 </mapper>

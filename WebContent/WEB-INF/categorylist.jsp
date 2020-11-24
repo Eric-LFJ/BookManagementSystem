@@ -12,7 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 </head>
-<body>
+<body style="background: url('image/背景图片4.jpg'); background-size:100% 100% ; background-attachment: fixed">
 <script type="text/javascript">
 function buttonClick(obj){
 	var a = document.getElementById('categoryname');
@@ -31,32 +31,21 @@ function buttonClick(obj){
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Login/Register<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Link</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Personal Center<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul></li>
+					<li><a href="${pageContext.request.contextPath }/login.jsp">Login/Register<span class="sr-only">(current)</span></a></li>
+					<li><a href="${pageContext.request.contextPath }/home.do">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li style="margin-right: 20px; color:#777777;margin-top: 15px"><B>Hello,${username }</B></li>
+					<li style="margin-right: 20px; color: #777777; margin-top: 15px"><B>Hello,${username }</B></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Personal Center<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
+							<li><a href="${pageContext.request.contextPath }/userorderbook.do">Order</a></li>
+							<li><a href="${pageContext.request.contextPath }/userrentbook.do">Rent</a></li>
+							<li><a href="${pageContext.request.contextPath }/userovertime.do">Overtime</a></li>
+							<li><a href="${pageContext.request.contextPath }/userreturnback.do">Return</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a href="${pageContext.request.contextPath }/changePassword.do">Change Password</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -67,7 +56,7 @@ function buttonClick(obj){
 	</div>
 	<div style="padding-left: 300px; padding-right: 300px">
 		<form action="${pageContext.request.contextPath }/bookOfCategory.do">
-			<input type="text" id="categoryname" name="categoryname"/>
+			<input type="text" id="categoryname" name="categoryname" hidden="hidden"/>
 			<table class="table table-hover">
 				<tr>
 					<td><b>Category</b></td>

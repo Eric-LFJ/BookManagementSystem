@@ -15,7 +15,7 @@
 <body style="background: url('image/背景图片4.jpg'); background-size:100% 100% ; background-attachment: fixed">
 <script type="text/javascript">
 function buttonClick(obj){
-	var a = document.getElementById('bookId');
+	var a = document.getElementById('rentId');
 	a.value=obj.id;
 }
 </script>
@@ -55,23 +55,25 @@ function buttonClick(obj){
 	<div style="margin-top: 100px">
 	</div>
 	<div style="padding-left: 300px; padding-right: 300px">
-		<form action="${pageContext.request.contextPath }/rent.do">
-			<input type="text" id="bookId" name="bookId" hidden="hidden"/>
+		<form action="${pageContext.request.contextPath }/cancelorder.do">
+			<input type="text" id="rentId" name="rentId" hidden="hidden"/>
 			<table class="table table-hover">
 				<tr>
-					<td><b>书名</b></td>
-					<td><b>作者</b></td>
-					<td><b>总共数量</b></td>
-					<td><b>剩余数量</b></td>
+					<td><b>Book Id</b></td>
+					<td><b>Book Name</b></td>
+					<td><b>Start Date</b></td>
+					<td><b>End Date</b></td>
 					<td></td>
 				</tr>
-				<c:forEach items="${booklist }" var="book">
+				<c:forEach items="${bookorderlist }" var="book">
 					<tr>
+						<td>${book.bookid }</td>
 						<td>${book.bookname }</td>
-						<td>${book.author }</td>
-						<td>${book.totalnumber }</td>
-						<td>${book.currentnumber }</td>
-						<td><button type="submit" id="${book.bookid }" onclick="buttonClick(this);" class="btn btn-primary">rent</button></td>
+						<td>${book.startdate }</td>
+						<td>${book.enddate }</td>
+						<td>
+							<button id="${book.rentid }" onclick="buttonClick(this);" class="btn btn-primary" aria-label="Left Align">Cancel</button>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -30,4 +30,12 @@ public class UserService {
 		return userMapper.checkNameCommon(user);
 	}
 
+	public String getUserPassword(String username) {
+		return userMapper.getUserPassword(username);
+	}
+
+	public void changePassword(String password, String username) {
+		userMapper.changePassword(password, username);
+	}
+
 }

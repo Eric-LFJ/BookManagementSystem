@@ -1,5 +1,6 @@
 package com.qdu.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,30 @@ public class BookInformationService {
 
 	public List<Book> searchBookByCategory(String categoryname) {
 		return bookInformationMapper.searchBookByCategory(categoryname);
+	}
+
+	public List<RentInformation> userOrderbook(String username) {
+		return bookInformationMapper.userOrderbook(username);
+	}
+
+	public void cancelOrder(String rentid) {
+		bookInformationMapper.cancelOrder(rentid);
+	}
+
+	public List<RentInformation> userRentbook(String username) {
+		return bookInformationMapper.userRentbook(username);
+	}
+
+	public List<RentInformation> userOvertime(Date datenow, String username) {
+		return bookInformationMapper.userOvertime(datenow, username);
+	}
+
+	public List<RentInformation> userReturnbook(String username) {
+		return bookInformationMapper.userReturnbook(username);
+	}
+
+	public List<RentInformation> hasRent(String username) {
+		return bookInformationMapper.hasRent(username);
 	}
 	
 }

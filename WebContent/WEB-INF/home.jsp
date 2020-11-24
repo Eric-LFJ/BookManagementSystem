@@ -90,7 +90,7 @@ ul.slide-number li {
 }
 </style>
 </head>
-<body>
+<body style="background: url('image/背景图片4.jpg'); background-size:100% 100% ; background-attachment: fixed">
 	<!-- 引入jquery -->
 	<script type="text/javascript"
 		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
@@ -165,20 +165,8 @@ ul.slide-number li {
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Login/Register<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Link</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Personal Center<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul></li>
+					<li><a href="${pageContext.request.contextPath }/login.jsp">Login/Register<span class="sr-only">(current)</span></a></li>
+					<li><a href="${pageContext.request.contextPath }/home.do">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li style="margin-right: 20px; color: #777777; margin-top: 15px"><B>Hello,${username }</B></li>
@@ -186,11 +174,12 @@ ul.slide-number li {
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Personal Center<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
+							<li><a href="${pageContext.request.contextPath }/userorderbook.do">Order</a></li>
+							<li><a href="${pageContext.request.contextPath }/userrentbook.do">Rent</a></li>
+							<li><a href="${pageContext.request.contextPath }/userovertime.do">Overtime</a></li>
+							<li><a href="${pageContext.request.contextPath }/userreturnback.do">Return</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a href="${pageContext.request.contextPath }/changePassword.do">Change Password</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -198,8 +187,7 @@ ul.slide-number li {
 	</nav>
 	<!-- 导航栏结束 -->
 	<!-- 搜索书籍 -->
-	<div
-		style="background-color: #f2f1ea; width: 100%; height: 150px; margin-top: -20px">
+	<div style="background-color: rgba(255,255,255,0.5); width: 100%; height: 150px; margin-top: -20px">
 		<div align="center" style="padding-top: 60px">
 			<form action="${pageContext.request.contextPath }/search.do"
 				method="post">

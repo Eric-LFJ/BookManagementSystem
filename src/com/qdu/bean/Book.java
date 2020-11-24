@@ -9,6 +9,7 @@ public class Book {
 	private String publisher;
 	private int totalnumber;
 	private int currentnumber;
+	private String category;
 
 	public String getBookname() {
 		return bookname;
@@ -66,11 +67,19 @@ public class Book {
 		this.publisher = publisher;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [bookid=" + bookid + ", bookname=" + bookname + ", author=" + author + ", description="
 				+ description + ", publisher=" + publisher + ", totalnumber=" + totalnumber + ", currentnumber="
-				+ currentnumber + "]";
+				+ currentnumber + ", category=" + category + "]";
 	}
 
 }
