@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="login.jsp">back</a>
 	Username cannot be common!
 </body>
 </html>
