@@ -107,6 +107,16 @@ public class AdService {
 		return list;
 	}
 
+	public void addOneBook(int rentid) {
+		AdMapper.addOneBook(rentid);
+	}
 
-	
+	public void deleteRentInformationOfUser(int bookid) {
+		AdMapper.deleteRentInformationOfUser(bookid);
+	}
+
+	public void updateCurrentNumber(int rentid) {
+		AdMapper.updateCurrentNumber(rentid);
+	}
+
 }
